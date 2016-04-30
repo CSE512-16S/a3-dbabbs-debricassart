@@ -34,13 +34,13 @@ A paragraph explaining changes between the storyboard and the final implementati
 
 3. **Preparing and transforming the data**. In order to visualize the data in D3.js using paths between land tracts, we had to transform our data into the proper form. Using an R script, we aggregated all similar rows of destination tract, origin tract, mode, purpose, and time by count. The R script also removed nearly 80 other unnecessary columns from the dataset. Within the dataset, the purpose and mode columns values were integers which corresponded to string values in a lookup file. We created a separate Java script to change the integer values to their string full names. The reason for using two different files is that we did these scripts at different times. In addition, we had to download US Census tracts within Seattle boundaries from the [Open Seattle Organization](https://github.com/openseattle/seattle-boundaries/blob/master/data/census-tracts.geojson). (3 hours)
 
-4. **Creating HTML frame and simple visualizations**. We chose to code our HTML frame, map tile and trips by hour bar graphs initially before creating our more advanced features (filters and paths). Our first frame was a weak HTML skeleton, but after a few passes, we changed our frame to bootstrap for pre-styled items and a mobile-friendly site in case our visualization consumers were on their mobile device. We chose to the HERE Map Tile API overlay within Leaflet.js. Dylan chose HERE Maps over OpenStreetMaps for a personal bias (he works there). We then coded a bar graph with the number of trips per hour. (4)
+4. **Creating HTML frame and simple visualizations**. We chose to code our HTML frame, map tile and trips by hour bar graphs initially before creating our more advanced features (filters and paths). Our first frame was a weak HTML skeleton, but after a few passes, we changed our frame to bootstrap for pre-styled items and a mobile-friendly site in case our visualization consumers were on their mobile device. We chose to the HERE Map Tile API overlay within Leaflet.js. Dylan chose HERE Maps over OpenStreetMaps for a personal bias (he works there). We then coded a bar graph with the number of trips per hour. (4 hours)
 
-5. **Creating paths between Cencus tracts**. (12)
+5. **Creating paths between Cencus tracts**. (12 hours)
 
-6. **Filtering by purpose and mode**. (10)
+6. **Filtering by purpose and mode**. (10 hours)
 
-7. **Writing writeup and finalizing project**. Yes, this was a step in the project. (2)
+7. **Writing writeup and finalizing project**. Yes, this was a step in the project. (2 hours)
 
 
 
