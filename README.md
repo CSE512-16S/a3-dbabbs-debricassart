@@ -38,7 +38,7 @@ A paragraph explaining changes between the storyboard and the final implementati
 
 5. **Creating paths between Cencus tracts**. (12 hours)
 
-6. **Filtering by purpose and mode**. (10 hours)
+6. **Filtering by purpose and mode**. Using JQuery, we assigned actions to checkboxes in order to filter by mode or purpose. The JQuery script would call on a method to update the data of the bar chart and paths with the parameters checked by the user. (10 hours)
 
 7. **Writing writeup and finalizing project**. Yes, this was a step in the project. (2 hours)
 
