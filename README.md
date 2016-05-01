@@ -11,6 +11,7 @@
 
 For Assignment 3, we decided to visualize trips throughout the Seattle area from the [2014 Puget Sound Regional Travel Study](http://www.psrc.org/data/transportation/travel-surveys/2014-household). The dataset, compiled from household responses throughout King, Kitsap, Pierce, and Snohomish counties, was created during the Spring of 2014 by the Puget Sound Regional Council. The dataset contains 47,919 records of trips compiled from a combination of nearly 6,000 households. We decided to focus on records within the city of Seattle for simplicity.
 
+The visualization highlights the different travel paths of residents throughout US Cencus tracts of the city. Each path's thickness between different tracts is weighted based on number of records. For example, a popular route such as U-District to Downtown will have a fairly thick line weight. In the second column of the page, a bar graph is present showing the distribution of trip times throughout the day by hour. Both the paths on the map and the bar graph can be filtered by mode of transportation and purpose of trip using checkboxes below the title and description.
 
 ## Running Instructions
 
@@ -42,7 +43,9 @@ A paragraph explaining changes between the storyboard and the final implementati
 
 7. **Writing writeup and finalizing project**. Yes, this was a step in the project. (2 hours)
 
-
+Distribution of work:
+Dylan: data exploration, data prep, HTML front end, mapping tile, bar graph
+Philippe: data exploration, data prep, geojson prep, mapping, paths, filtering, information pane/tooltip
 
 Include:
 - Breakdown of how the work was split among the group members.
