@@ -50,6 +50,7 @@ $(document).ready(function(){
                     tractById.set(d.properties.GEOID10, d);
                           d.incoming = [];
                           d.outgoing = [];
+                          d.total_trips = 0;
                           var position = path.centroid(d);
                           d.x = position[0];
                           d.y = position[1];
@@ -59,7 +60,8 @@ $(document).ready(function(){
               .attr("class","tract_cell")
               .attr("d",path);
 
-        trips = trips_seattle_modified.filter(function(d) {return ((d.o_tract != d.d_tract) & (mode.indexOf(+d.mode) != -1) & (purpose.indexOf(+d.d_purpose)!= -1))})
+        trips = trips_seattle_modified.filter(function(d) {return ((d.o_tract != d.d_tract) & (mode.indexOf(+d.mode) != -1) & (purpose.indexOf(+d.d_purpose)!= -1) & (hour.indexOf(+d.time_start_hhmm) != -1))})
+
 
         var trips_count = d3.nest()
             .key(function(d) { return d.o_tract; })
@@ -78,6 +80,7 @@ $(document).ready(function(){
                       link = {source: source, target: target, weight: d.values};
                       source.incoming.push(link);
                       target.outgoing.push(link);
+                      source.total_trips += d.values;
                     });
                   });
 
@@ -96,8 +99,25 @@ $(document).ready(function(){
                       .attr("y1", function(d) { return d.source.y})
                       .attr("y2", function(d) { return d.target.y})
                       .attr("stroke","gray")
-                      //.attr("stroke-width",'0.8');
                       .attr("stroke-width", function(d) {return lineScale(d.weight)});
+
+        var tooltip = d3.select("#geo_id").append('div')
+            .attr('class', 'hidden tooltip');
+
+        var tooltip2 = d3.select("#geo_details").append('div')
+            .attr('class', 'hidden tooltip');
+
+        d3.selectAll('path')
+            .on("mouseover", function(d) {
+                tooltip.classed('hidden', false)
+                        .html("GEOID: " + d.properties.GEOID10);
+                tooltip2.classed('hidden', false)
+                        .html("Total outgoing trips: " + d.total_trips);
+              })
+            .on('mouseout', function() {
+                    tooltip.classed('hidden', true);
+                    tooltip2.classed('hidden', true);
+                  });
 
         map.on("viewreset", reset);
         reset();
@@ -130,15 +150,14 @@ $(document).ready(function(){
                       tractById.set(d.properties.GEOID10, d);
                             d.incoming = [];
                             d.outgoing = [];
+                            d.total_trips = 0;
                             var position = path.centroid(d);
                             d.x = position[0];
                             d.y = position[1];
                    });
 
-          trips = trips_seattle_modified.filter(function(d) {return ((d.o_tract != d.d_tract) & (mode.indexOf(+d.mode) != -1) & (purpose.indexOf(+d.d_purpose)!= -1))})
+          trips = trips_seattle_modified.filter(function(d) {return ((d.o_tract != d.d_tract) & (mode.indexOf(+d.mode) != -1) & (purpose.indexOf(+d.d_purpose)!= -1)  & (hour.indexOf(+d.time_start_hhmm) != -1))})
 
-          console.log(purpose);
-          console.log(trips);
 
           var trips_count = d3.nest()
               .key(function(d) { return d.o_tract; })
@@ -155,12 +174,12 @@ $(document).ready(function(){
                         max_weight = Math.max(max_weight, d.values);
                         var target = tractById.get(d.key);
                         link = {source: source, target: target, weight: d.values};
+                        source.total_trips += d.values;
                         source.incoming.push(link);
                         target.outgoing.push(link);
                       });
                     });
 
-          console.log(tracts);
 
           var lineScale = d3.scale.linear()
             .domain([0, max_weight])
@@ -190,12 +209,10 @@ $(document).ready(function(){
 
     d3.csv('trips_seattle_modified.csv', function(error, data) {
 
-      var hours = ["1 AM", "2 AM", "3 AM", "4 AM", "5 AM", "6 AM", "7 AM", "8 AM", "9 AM",
+      var hours = ["12 AM","1 AM", "2 AM", "3 AM", "4 AM", "5 AM", "6 AM", "7 AM", "8 AM", "9 AM",
    "10 AM", "11 AM", "12 PM", "1 PM", "2 PM", "3 PM", "4 PM", "5 PM", "6 PM", "7 PM",
-   "8 PM", "9 PM", "10 PM", "11 PM", "12 AM"];
-        /*var hours = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17,
-            18, 19, 20, 21, 22, 23
-        ];*/
+   "8 PM", "9 PM", "10 PM", "11 PM"];
+
         var dataset = Array(24).fill(0);
 
         data.forEach(function(d) {
@@ -243,7 +260,33 @@ $(document).ready(function(){
             .attr("height", function(d) {
                 return yScale(d);
             })
-            .attr("fill", "teal");
+            .attr("fill", "teal")
+            .on("click", function(d,i) {
+                if (hour.indexOf(i) != -1) {
+                  if(hour.length == 24) {
+                    hour = [i];
+                    d3.select(this).style("fill", '#FF9933');
+                  }
+                  else {
+                    hour.splice(hour.indexOf(i),1);
+                    d3.select(this).style("fill", 'teal');
+                    if (hour.length == 0) {
+                      hour = Array.apply(-1, Array(23)).map(function (x, y) { return y + 1; });
+                    }
+                  }
+                }
+                else {
+                  hour.push(i);
+                  if(hour.length == 24) {
+                    bar.select.style("fill", 'teal');
+                  }
+                  else {
+                    d3.select(this).style("fill", '#FF9933');
+                  }
+                }
+                updateMap();
+                
+            });
 
         bar.selectAll("text")
             .data(hours)
