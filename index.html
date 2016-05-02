@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+
+  <title>Seattle Tract Travel Survey</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!--Bootstrap-->
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.css" />
+  <script src="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.js"></script>
+  <script src="http://d3js.org/topojson.v1.min.js"></script>
+  <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+  <script src="//d3js.org/queue.v1.min.js"></script>
+  <script src="variables.js"></script>
+  <script src="viz.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="style.css">
+
+</head>
+<body>
+
+   <div class="container-fluid">
+      <div class="row col-md-6" style="padding-top:10px;padding-bottom:10px">
+         <div id="mapcanvas" style="height:100%"></div>
+      </div>
+
+
+      <div class="row col-md-6" id="right_pane" style="padding-left:25px">
+
+            <div class = "row col-md-12 title" style="height:30%">
+                  <h1 align="center">Seattle Tract Travel Survey</br><small>Philippe Vaillant
+                      & Dylan Babbs</small></h1>
+                   <p>This visualization explores the travel patterns throughout the city
+                     of Seattle through US Cencus tracts, transportation mode, transportation
+                     purpose, and hour of day. Hover on the map to explore popular
+                     travel paths. Filter by mode or purpose using the checkboxes. Data source:
+                     <a href="http://www.psrc.org/data/transportation/travel-surveys/2014-household">
+                     2014 Puget Sound Regional Travel Study</a></p>
+            </div>
+
+            <div class = "row filter_pane col-md-12" style="height:25%">
+
+               <div class="col-md-6">
+                  <h4>Filter by purpose of trip:</h4>
+                     <div id ="purpose_filter" class="checkbox" style="padding-left:4vw">
+                        <input type="checkbox" value=1 checked><label>Home</label></br>
+                        <input type="checkbox" value=2 checked><label>Work</label></br>
+                        <input type="checkbox" value=3 checked><label>Shopping</label></br>
+                        <input type="checkbox" value=4 checked><label>Other</label>
+                     </div>
+               </div>
+
+               <div class="col-md-6">
+                  <h4>Filter by mode of transportation:</h4>
+                  <div id="mode_filter" class="checkbox" style="padding-left:4vw">
+                     <input type="checkbox" value=1 checked><label>Drive</label></br>
+                     <input type="checkbox" value=2 checked><label>Bicycle</label></br>
+                     <input type="checkbox" value=3 checked><label>Walk</label></br>
+                     <input type="checkbox" value=4 checked><label>Bus</label></br>
+                     <input type="checkbox" value=5 checked><label>Other</label>
+                  </div>
+               </div>
+
+            </div>
+
+            <div class="row information_pane col-md-12" style="height:20%">
+              <h4>Tract Information</h4>
+               <div class="col-md-6" id="geo_id">
+
+               </div>
+               <div class="col-md-6" id="geo_details">
+
+               </div>
+            </div>
+
+            <div class="row col-md-12" id="barchart" style="height:25%">
+                  <h4>Distribution of trips by hour of day:</h4>
+            </div>
+
+      </div>
+
+   </div>
+
+</body>
+
+</html>
