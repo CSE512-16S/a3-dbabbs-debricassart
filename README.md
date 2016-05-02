@@ -7,7 +7,7 @@
 
 ## Visualizing Seattle Trips
 
-![Thumbnail](thumbnail.png)
+![screenshot](screenshot.png)
 
 For Assignment 3, we decided to visualize trips throughout the Seattle area from the [2014 Puget Sound Regional Travel Study](http://www.psrc.org/data/transportation/travel-surveys/2014-household). The dataset, compiled from household responses throughout King, Kitsap, Pierce, and Snohomish counties, was created during the Spring of 2014 by the Puget Sound Regional Council. The dataset contains 47,919 records of trips compiled from a combination of nearly 6,000 households. We decided to focus on records within the city of Seattle for simplicity.
 
