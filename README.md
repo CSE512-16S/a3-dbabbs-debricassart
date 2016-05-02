@@ -7,20 +7,17 @@
 
 ## Visualizing Seattle Trips
 
-![screenshot](screenshot.png)
+For Assignment 3, we decided to visualize trips throughout the Seattle area from the [2014 Puget Sound Regional Travel Study](http://www.psrc.org/data/transportation/travel-surveys/2014-household). The dataset, compiled from household responses throughout King, Kitsap, Pierce, and Snohomish counties, was created during the Spring of 2014 by the Puget Sound Regional Council. The dataset contains 47,919 records of trips compiled from a combination of nearly 6,000 households. We decided to focus on records within the city of Seattle (instead of the entire Puget Sound region) for simplicity.
 
-For Assignment 3, we decided to visualize trips throughout the Seattle area from the [2014 Puget Sound Regional Travel Study](http://www.psrc.org/data/transportation/travel-surveys/2014-household). The dataset, compiled from household responses throughout King, Kitsap, Pierce, and Snohomish counties, was created during the Spring of 2014 by the Puget Sound Regional Council. The dataset contains 47,919 records of trips compiled from a combination of nearly 6,000 households. We decided to focus on records within the city of Seattle for simplicity.
-
-The visualization highlights the different travel paths of residents throughout US Cencus tracts of the city. Each path's thickness between different tracts is weighted based on number of records. For example, a popular route such as U-District to Downtown will have a fairly thick line weight. In the second column of the page, a bar graph is present showing the distribution of trip times throughout the day by hour. Both the paths on the map and the bar graph can be filtered by mode of transportation and purpose of trip using checkboxes below the title and description.
+The visualization highlights the different travel paths of residents throughout US Cencus tracts of the city. Each path's weight between different tracts is determined based on the number of records. For example, a popular route such as U-District to Downtown will have a fairly thick line weight. In the second column of the page, a bar graph is present showing the distribution of trip times throughout the day by hour. Both the paths on the map and the bar graph can be filtered by mode of transportation and purpose of trip using checkboxes below the title and description.
 
 ## Running Instructions
 
-Access our visualization at http://cse512-16s.github.io/a3-jheer-mcorrell-jhoffs/ or download this repository and run `python -m SimpleHTTPServer 8888` and access this from http://localhost:8888/.
+Access our visualization at http://putalinkhere or download this repository and run `python -m SimpleHTTPServer 8888` and access this from http://localhost:8888/.
 
 ## Story Board
 
-Put either your storyboard content or a [link to your storyboard pdf file](storyboard.pdf?raw=true) here. Just like A2, you can use any software to create a *reasonable* pdf storyboard.
-
+![screenshot](screenshot.png)
 
 ### Changes between Storyboard and the Final Implementation
 
