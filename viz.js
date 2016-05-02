@@ -285,7 +285,7 @@ $(document).ready(function(){
                   }
                 }
                 updateMap();
-                
+
             });
 
         bar.selectAll("text")
