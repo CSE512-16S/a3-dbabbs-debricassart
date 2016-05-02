@@ -24,9 +24,14 @@ Put either your storyboard content or a [link to your storyboard pdf file](story
 
 ### Changes between Storyboard and the Final Implementation
 
-![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 1")
 
-A paragraph explaining changes between the storyboard and the final implementation.
+![story1](story1.JPG)
+First storyboard design. All elements remain intact in the final visualization except for the donut chart visualizing the purpose of trip.
+
+![story2](story2.JPG)
+Final storyboard design. Donut chart was removed as well as some repositioning of elements. Map was repositioned to take over the entire left half of the frame, while the bar graph was repositioned on the bottom half of the right half of the frame. This repositioning was performed to place a greater emphasis on the main element of the visualization: the map.
+
+
 
 
 ## Development Process
@@ -46,11 +51,5 @@ A paragraph explaining changes between the storyboard and the final implementati
 7. **Writing writeup and finalizing project**. Yes, this was a step in the project. (2 hours)
 
 Distribution of work:
-Dylan: data exploration, data prep, HTML front end, mapping tile, bar graph
-Philippe: data exploration, data prep, geojson prep, mapping, paths, filtering, information pane/tooltip
-
-Include:
-- Breakdown of how the work was split among the group members.
-- A commentary on the development process, including answers to the following questions:
-  - Roughly how much time did you spend developing your application?
-  - What aspects took the most time?
+*Philippe: data exploration, data prep, geojson prep, mapping, paths, filtering, information pane/tooltip.
+*Dylan: data exploration, data prep, HTML front end, mapping tile, bar graph, write up.
