@@ -24,6 +24,8 @@ Put either your storyboard content or a [link to your storyboard pdf file](story
 
 ### Changes between Storyboard and the Final Implementation
 
+![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 1")
+
 A paragraph explaining changes between the storyboard and the final implementation.
 
 
