@@ -13,7 +13,7 @@ The visualization highlights the different travel paths of residents throughout 
 
 ## Running Instructions
 
-Access our visualization at http://putalinkhere or download this repository and run `python -m SimpleHTTPServer 8888` and access this from http://localhost:8888/.
+Access our visualization at http://cse512-16s.github.io/a3-dbabbs-debricassart or download this repository and run `python -m SimpleHTTPServer 8888` and access this from http://localhost:8888/.
 
 ## Story Board
 
